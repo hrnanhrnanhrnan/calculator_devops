@@ -10,31 +10,19 @@ pool:
   vmImage: "windows-latest"
 
 variables:
-  solution: "**/*.sln"
-  buildPlatform: "Any CPU"
+  SKIP_FIRST_TIME_EXPERIENCE: true
   buildConfiguration: "Release"
 
 steps:
-  - task: NuGetToolInstaller@1
-
-  - task: NuGetCommand@2
+  - task: UseDotNet@2
     inputs:
-      restoreSolution: "$(solution)"
+      packageType: 'sdk'
+      version: '3.1.x'
 
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: "test"
-      projects: "**/*.csproj"
-      testRunTitle: "TestRun"
 
   - task: DotNetCoreCLI@2
     inputs:
-      command: "build"
-      projects: "**/*.csproj"
-
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: "publish"
+      command: 'publish'
       publishWebProjects: false
       zipAfterPublish: false
       modifyOutputPath: false
@@ -42,5 +30,7 @@ steps:
 
   - task: PublishPipelineArtifact@1
     inputs:
-      targetPath: "$(Build.ArtifactStagingDirectory)"
-      artifact: "THEArtifact"
+      targetPath: '$(Build.ArtifactStagingDirectory)'
+      artifact: 'Calculator'
+      
+
