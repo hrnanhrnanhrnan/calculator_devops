@@ -7,7 +7,7 @@ namespace App
 {
     public class Calculator : ICalculator
     {
-        // comment
+        // comment 
         public double Addition(double valOne, double valTwo)
             => valOne + valTwo;
     }
