@@ -20,7 +20,7 @@ namespace App
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            AppCenter.Start("2735ff41-0403-4fe3-9e29-ff4d05fc6449",
+            AppCenter.Start("70a8d008-d168-466e-a880-9003d3bb8592",
                   typeof(Analytics), typeof(Crashes));
             Application.Run(new GUI(new Calculator()));
         }
