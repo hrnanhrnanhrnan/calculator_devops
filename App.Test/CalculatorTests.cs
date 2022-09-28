@@ -1,8 +1,7 @@
 using App.Commons;
-using App;
 using NUnit.Framework;
 
-namespace Calculator.Test
+namespace App.Test
 {
     public class Tests
     {
@@ -10,7 +9,7 @@ namespace Calculator.Test
 
         [SetUp]
         public void Setup()
-            => _calculator = new App.Calculator();
+            => _calculator = new Calculator();
 
         [Test]
         public void Addition_Does_Addition()
@@ -19,7 +18,6 @@ namespace Calculator.Test
         [Test]
         public void Addition_Does_Addition_With_Decimals()
             => Assert.AreEqual(3, _calculator.Addition(1.5, 1.5));
-        
 
         [Test]
         public void Addition_Returns_Double()
