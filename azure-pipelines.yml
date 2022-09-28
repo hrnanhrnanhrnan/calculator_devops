@@ -32,3 +32,14 @@ steps:
     command: 'test'
     projects: '**/*.csproj'
     testRunTitle: 'TestRun'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/*.csproj'
