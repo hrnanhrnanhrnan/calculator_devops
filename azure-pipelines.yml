@@ -20,12 +20,14 @@ steps:
       version: "3.1.x"
 
   - task: DotNetCoreCLI@2
+    displayName: "Test run"
     inputs:
       command: "test"
       projects: "**/*.csproj"
       testRunTitle: "TestRun"
 
   - task: DotNetCoreCLI@2
+    displayName: "Publish Project"
     inputs:
       command: "publish"
       publishWebProjects: false
@@ -34,9 +36,18 @@ steps:
       arguments: --output $(Build.ArtifactStagingDirectory)
 
   - task: PublishPipelineArtifact@1
+    displayName: "Publish PP Artifact"
     inputs:
       targetPath: "$(Build.ArtifactStagingDirectory)"
       artifact: "Calculator"
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
 
   - task: GitHubRelease@1
     inputs:
@@ -46,5 +57,6 @@ steps:
       target: '$(Build.SourceVersion)'
       tagSource: 'userSpecifiedTag'
       tag: 'v1.0.2'
+      assets: '$(Build.ArtifactStagingDirectory)/*.zip'
       changeLogCompareToRelease: 'lastFullRelease'
       changeLogType: 'commitBased'
