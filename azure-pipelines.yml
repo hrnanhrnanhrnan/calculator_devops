@@ -37,13 +37,3 @@ steps:
     inputs:
       targetPath: "$(Build.ArtifactStagingDirectory)"
       artifact: "Calculator"
-
-  - task: AppCenterDistribute@3
-    inputs:
-      serverEndpoint: "AppCenter"
-      appSlug: "TeamRainbow/Calculator"
-      appFile: "$(Build.ArtifactStagingDirectory)"
-      buildVersion: "1.1"
-      releaseNotesOption: "input"
-      releaseNotesInput: "Newest version"
-      destinationType: "groups"
