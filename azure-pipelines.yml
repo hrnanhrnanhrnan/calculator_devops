@@ -40,11 +40,3 @@ steps:
     inputs:
       targetPath: "$(Build.ArtifactStagingDirectory)"
       artifact: "Calculator"
-
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      replaceExistingArchive: true
