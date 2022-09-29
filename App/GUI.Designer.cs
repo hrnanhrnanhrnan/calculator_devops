@@ -272,7 +272,7 @@
             this.Controls.Add(this.resultBox);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GUI";
-            this.Text = "Calculator v0.1";
+            this.Text = "Calculator v0.1 - Freddy wuz her";
             this.ResumeLayout(false);
             this.PerformLayout();
 
