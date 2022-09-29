@@ -37,3 +37,14 @@ steps:
     inputs:
       targetPath: "$(Build.ArtifactStagingDirectory)"
       artifact: "Calculator"
+
+  - task: GitHubRelease@1
+    inputs:
+      gitHubConnection: 'github.com_hrnanhrnanhrnan'
+      repositoryName: '$(Build.Repository.Name)'
+      action: 'create'
+      target: '$(Build.SourceVersion)'
+      tagSource: 'userSpecifiedTag'
+      tag: 'v1.0.2'
+      changeLogCompareToRelease: 'lastFullRelease'
+      changeLogType: 'commitBased'
