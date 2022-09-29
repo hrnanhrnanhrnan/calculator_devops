@@ -16,13 +16,12 @@ variables:
 steps:
   - task: UseDotNet@2
     inputs:
-      packageType: 'sdk'
-      version: '3.1.x'
-
+      packageType: "sdk"
+      version: "3.1.x"
 
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'publish'
+      command: "publish"
       publishWebProjects: false
       zipAfterPublish: false
       modifyOutputPath: false
@@ -30,7 +29,15 @@ steps:
 
   - task: PublishPipelineArtifact@1
     inputs:
-      targetPath: '$(Build.ArtifactStagingDirectory)'
-      artifact: 'Calculator'
-      
+      targetPath: "$(Build.ArtifactStagingDirectory)"
+      artifact: "Calculator"
 
+  - task: AppCenterDistribute@3
+    inputs:
+      serverEndpoint: "AppCenter"
+      appSlug: "TeamRainbow/Calculator"
+      appFile: "$(Build.ArtifactStagingDirectory)"
+      buildVersion: "1.1"
+      releaseNotesOption: "input"
+      releaseNotesInput: "Newest version"
+      destinationType: "groups"
