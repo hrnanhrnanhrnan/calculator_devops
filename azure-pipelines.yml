@@ -42,7 +42,7 @@ steps:
     inputs:
       serverEndpoint: "AppCenter"
       appSlug: "TeamRainbow/Calculator"
-      appFile: "$(Build.ArtifactStagingDirectory)"
+      appFile: "$(Build.ArtifactStagingDirectory)/Calculator"
       buildVersion: "1.1"
       releaseNotesOption: "input"
       releaseNotesInput: "Newest version"
