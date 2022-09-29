@@ -123,6 +123,5 @@ namespace App
                 button.Enabled = choice;
             }
         }
-
     }
 }
