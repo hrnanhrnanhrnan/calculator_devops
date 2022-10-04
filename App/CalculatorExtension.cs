@@ -20,7 +20,7 @@ namespace App
                         return calc.Addition(valOne, parsedValTwo);
 
                     case "-":
-                        throw new NotImplementedException();
+                        return calc.Subtraction(valOne, parsedValTwo);
 
                     case "*":
                         return calc.Multiplication(valOne, parsedValTwo);
