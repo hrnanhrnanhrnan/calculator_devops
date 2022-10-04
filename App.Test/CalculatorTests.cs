@@ -75,5 +75,38 @@ namespace App.Test
             // Assert
             Assert.AreEqual(dType, resultType);
         }
+
+        //Subtraction
+
+        [Test]
+        public void Subtraction_Does_Subtraction()
+        {
+            // Act
+            var result = _calculator.Subtraction(4, 2);
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void Subtraction_Does_Subtraction_With_Decimals()
+        {
+            // Act
+            var result = _calculator.Subtraction(10.5, 2);
+
+            // Arrange
+            Assert.AreEqual(8.5, result);
+        }
+
+        [Test]
+        public void Subtraction_Returns_Subtraction()
+        {
+            // Act
+            var resultType = _calculator.Subtraction(10, 5).GetType();
+            var dType = typeof(double);
+
+            // Assert
+            Assert.AreEqual(dType, resultType);
+        }
     }
 }

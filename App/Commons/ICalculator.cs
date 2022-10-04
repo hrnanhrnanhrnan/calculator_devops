@@ -8,5 +8,6 @@ namespace App.Commons
     {
         double Addition(double valOne, double valTwo);
         double Division(double valOne, double valTwo);
+        double Subtraction(double valOne, double valTwo);
     }
 }
