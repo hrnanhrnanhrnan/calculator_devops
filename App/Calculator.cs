@@ -10,5 +10,8 @@ namespace App
         //Freddu wuz her 2 test
         public double Addition(double valOne, double valTwo)
             => valOne + valTwo;
+
+        public double Division(double valOne, double valTwo)
+            => valOne / valTwo;
     }
 }

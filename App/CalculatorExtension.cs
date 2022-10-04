@@ -26,7 +26,7 @@ namespace App
                         throw new NotImplementedException();
 
                     case "/":
-                        throw new NotImplementedException();
+                        return calc.Division(valOne, parsedValTwo);
 
                     // default just returns the value that is in the resultTextbox
                     //Freddy wuz her
