@@ -11,5 +11,10 @@ namespace App
         //Micke lär ut github
         public double Addition(double valOne, double valTwo)
             => valOne + valTwo;
+
+        public double Division(double valOne, double valTwo)
+            => valOne / valTwo;
+
+
     }
 }
