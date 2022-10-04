@@ -15,7 +15,12 @@ namespace App
         public double Division(double valOne, double valTwo)
             => valOne / valTwo;
 
+
+        public double Subtraction(double valOne, double valTwo)
+            => valOne - valTwo;
+
         public double Multiplication(double valOne, double valTwo)
             => valOne * valTwo;
+
     }
 }
