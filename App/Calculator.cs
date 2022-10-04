@@ -8,7 +8,7 @@ namespace App
     public class Calculator : ICalculator
     {
         //Freddy wuz her 2
-        //Robin wuz her
+        //Robin wuz her, not
       
         public double Addition(double valOne, double valTwo)
             => valOne + valTwo;
