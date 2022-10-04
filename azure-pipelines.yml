@@ -11,6 +11,7 @@ pool:
 
 variables:
   buildConfiguration: "Release"
+  buildId: $(Build.BuildId)
 
 steps:
   - task: UseDotNet@2
@@ -45,7 +46,7 @@ steps:
       rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
       includeRootFolder: true
       archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.SourceVersion).zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(buildId).zip'
       replaceExistingArchive: true
 
   - task: GitHubRelease@1
@@ -53,7 +54,7 @@ steps:
       gitHubConnection: 'github.com_hrnanhrnanhrnan'
       target: '$(Build.SourceVersion)'
       tagSource: 'userSpecifiedTag'
-      tag: 'v1.0.$(Build.SourceVersion)'
+      tag: 'v1.0.$(buildId)'
       assets: '$(Build.ArtifactStagingDirectory)/*.zip'
       changeLogCompareToRelease: 'lastFullRelease'
       changeLogType: 'commitBased'
