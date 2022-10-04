@@ -23,7 +23,7 @@ namespace App
                         return calc.Subtraction(valOne, parsedValTwo);
 
                     case "*":
-                        throw new NotImplementedException();
+                        return calc.Multiplication(valOne, parsedValTwo);
 
                     case "/":
                         return calc.Division(valOne, parsedValTwo);

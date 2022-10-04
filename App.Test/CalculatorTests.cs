@@ -76,6 +76,39 @@ namespace App.Test
             Assert.AreEqual(dType, resultType);
         }
 
+        //Multiplication
+
+        [Test]
+        public void Multiplication_Does_Multiplication()
+        {
+            // Act
+            var result = _calculator.Multiplication(5, 5);
+
+            // Assert
+            Assert.AreEqual(25, result);
+        }
+
+        [Test]
+        public void Multiplication_Does_Multiplication_With_Decimals()
+        {
+            // Act
+            var result = _calculator.Multiplication(10.25, 2);
+
+            // Arrange
+            Assert.AreEqual(20.5, result);
+        }
+
+        [Test]
+        public void Multiplication_Returns_Double()
+        {
+            // Act
+            var resultType = _calculator.Multiplication(10, 5).GetType();
+            var dType = typeof(double);
+
+            // Assert
+            Assert.AreEqual(dType, resultType);
+        }
+
         //Subtraction
 
         [Test]
