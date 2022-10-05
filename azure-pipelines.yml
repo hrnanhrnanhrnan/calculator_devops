@@ -7,11 +7,11 @@ trigger:
   - master
 
 pool:
-  vmImage: "windows-2019"
+  vmImage: "windows-latest"
 
 variables:
-  SKIP_FIRST_TIME_EXPERIENCE: true
   buildConfiguration: "Release"
+  buildId: $(Build.BuildId)
 
 steps:
   - task: UseDotNet@2
