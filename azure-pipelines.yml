@@ -40,21 +40,3 @@ steps:
     inputs:
       targetPath: "$(Build.ArtifactStagingDirectory)"
       artifact: "Calculator"
-
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.SourceVersion).zip'
-      replaceExistingArchive: true
-
-  - task: GitHubRelease@1
-    inputs:
-      gitHubConnection: 'github.com_hrnanhrnanhrnan'
-      target: '$(Build.SourceVersion)'
-      tagSource: 'userSpecifiedTag'
-      tag: 'v1.0.$(Build.SourceVersion)'
-      assets: '$(Build.ArtifactStagingDirectory)/*.zip'
-      changeLogCompareToRelease: 'lastFullRelease'
-      changeLogType: 'commitBased'
